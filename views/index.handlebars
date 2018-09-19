@@ -1,0 +1,34 @@
+<div class="container-fluid">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/?search=apple">apple</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/?search=weather">weather</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0" id="search-form">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="search-term" name="search">
+        <button type="submit" class="btn btn-outline-success my-2 my-sm-0">Search</button>
+      </form>
+    </div>
+  </nav>
+  <div id="search-results">
+    <div class="card-columns">
+      {{#if news}}
+        {{#each news}}
+          <div class="card">
+            <img class="card-img-top" src="{{image}}" alt="{{title}}">
+            <div class="card-body">
+              <h5 class="card-title">{{title}}</h5>
+              <p class="card-text">{{description}}</p>
+              <a href="{{url}}" class="btn btn-primary">Read more</a>
+            </div>
+          </div>
+        {{/each}}
+      {{/if}}
+    </div>
+  </div>
+</div>
