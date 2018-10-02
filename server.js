@@ -11,6 +11,10 @@ app.engine('handlebars', expressHandlebars({ defaultLayout: 'main' }));
 app.set('views', path.join(__dirname, '/views'));
 app.set('view engine', 'handlebars');
 
-app.get('/', getNewsFromFeed);
+app.use(express.static(path.join(__dirname, '/assets')));
+
+app.get('/', (req, res) => res.render('index'));
+
+app.get('/api/news/', getNewsFromFeed);
 
 app.listen(process.env.port, () => console.log('App running on: http://localhost:3000'));

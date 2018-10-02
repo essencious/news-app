@@ -24,7 +24,7 @@ const getNewsFromFeed = (req, res) => {
         return console.log(err);
       }
       const newsArticles = body.articles.map(selectNewsArticles);
-      return res.render('index', { news: newsArticles });
+      return res.json(newsArticles);
     },
   );
 };
